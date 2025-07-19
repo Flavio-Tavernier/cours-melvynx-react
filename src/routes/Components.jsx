@@ -1,23 +1,15 @@
-function ShoeCard(props) {
-  console.log(props);
+import { Rabbit } from "lucide-react";
 
+function ShoeCard(props) {
   return (
-    <div className="card w-96 bg-neutral shadow-xl">
+    <div className="card w-full bg-neutral shadow-md">
       <figure>
-        <img
-          className="h-32 w-full object-cover"
-          src={props.image}
-          alt="Shoes"
-        />
+        <img className="h-32 w-full object-cover" src={props.image} />
       </figure>
       <div className="card-body">
         <div className="flex items-center gap-2">
-          <h2 className="card-title">
-            {props.id} {props.title}
-          </h2>
-          {Boolean(props.isNew) && (
-            <div className="badge badge-primary">new</div>
-          )}
+          <h2 className="card-title">{props.title}</h2>
+          {props.isNew ? <div className="badge badge-primary">new</div> : null}
         </div>
       </div>
     </div>
@@ -27,29 +19,34 @@ function ShoeCard(props) {
 const SHOES = [
   {
     image: "/images/shoes-1.png",
-    isNew: 0,
     title: "Requin",
+    isNew: true,
     id: 1,
   },
   {
     image: "/images/shoes-2.png",
-    isNew: 1,
-    title: "Basket",
+    title: "Requin",
+    isNew: false,
     id: 2,
   },
   {
     image: "/images/shoes-3.png",
-    title: "Test",
+    title: "Requin",
+    isNew: false,
     id: 3,
   },
 ];
 
+
 export default function Components() {
   return (
-    <div className="flex flex-col items-start gap-4">
-      {SHOES.map((shoe) => {
-        return <ShoeCard key={shoe.id} {...shoe} />;
-      })}
+    <div className="flex flex-col gap-4 items-start">
+      {SHOES.map(shoe => (
+        <ShoeCard key={shoe.id} {...shoe}/>
+      ))}
+      {/* <ShoeCard image="/images/shoes-1.png" title="Requin" isNew/>
+      <ShoeCard image="/images/shoes-2.png" title="Requin"/>
+      <ShoeCard image="/images/shoes-3.png" title="Requin"/> */}
     </div>
   );
 }
