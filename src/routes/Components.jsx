@@ -1,5 +1,3 @@
-import { Rabbit } from "lucide-react";
-
 function ShoeCard(props) {
   return (
     <div className="card w-full bg-neutral shadow-md">
@@ -25,7 +23,7 @@ const SHOES = [
   },
   {
     image: "/images/shoes-2.png",
-    title: "Requin",
+    title: "Requin 2",
     isNew: false,
     id: 2,
   },
@@ -37,16 +35,12 @@ const SHOES = [
   },
 ];
 
-
 export default function Components() {
   return (
     <div className="flex flex-col gap-4 items-start">
       {SHOES.map(shoe => (
         <ShoeCard key={shoe.id} {...shoe}/>
       ))}
-      {/* <ShoeCard image="/images/shoes-1.png" title="Requin" isNew/>
-      <ShoeCard image="/images/shoes-2.png" title="Requin"/>
-      <ShoeCard image="/images/shoes-3.png" title="Requin"/> */}
     </div>
   );
 }
